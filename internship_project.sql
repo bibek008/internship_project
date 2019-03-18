@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 11:47 AM
+-- Generation Time: Mar 18, 2019 at 11:56 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -29,17 +29,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `credit_debit` (
   `id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
-  `card_no` int(11) NOT NULL,
-  `ccv` int(11) NOT NULL,
-  `date` int(11) NOT NULL
+  `card_no` varchar(30) NOT NULL,
+  `ccv` varchar(10) NOT NULL,
+  `date` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `credit_debit`
---
-
-INSERT INTO `credit_debit` (`id`, `name`, `card_no`, `ccv`, `date`) VALUES
-(1, 'bibek', 1213, 122, 12);
 
 --
 -- Indexes for dumped tables
@@ -59,7 +52,7 @@ ALTER TABLE `credit_debit`
 -- AUTO_INCREMENT for table `credit_debit`
 --
 ALTER TABLE `credit_debit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
