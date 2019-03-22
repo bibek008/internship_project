@@ -1,4 +1,22 @@
-
+<?php
+include("db_connect.php");
+	$Name = $_POST['Name'];
+	$Language = $_POST['Language'];
+	$Director = $_POST['Director'];
+	$Genre = $_POST['Genre'];
+	$Cast = $_POST['Cast'];
+	if(isset($Name)){	
+			$sql0 = "INSERT INTO movies (name, language, director, genre, cast)VALUES ('$Name', '$Language', '$Director', '$Genre', '$Cast')";
+			if (mysqli_query($conn, $sql0)) {
+				echo "ADDED MOVIES";
+				echo "<script >alert('movies added');</script>";
+			} /*else {
+				echo "Fail: " . $sql0 . "<br/>" . mysqli_error($conn);
+			}
+		*/
+	}
+mysqli_close($conn);
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -49,22 +67,4 @@
 		
 </body>
 </html>
-<?php
-include("db_connect.php");
-	$Name = $_POST['Name'];
-	$Language = $_POST['Language'];
-	$Director = $_POST['Director'];
-	$Genre = $_POST['Genre'];
-	$Cast = $_POST['Cast'];
-	if(isset($Name)){	
-			$sql0 = "INSERT INTO movies (name, language, director, genre, cast)VALUES ('$Name', '$Language', '$Director', '$Genre', '$Cast')";
-			if (mysqli_query($conn, $sql0)) {
-				echo "ADDED MOVIES";
-				echo "<script >alert('movies added');</script>";
-			} /*else {
-				echo "Fail: " . $sql0 . "<br/>" . mysqli_error($conn);
-			}
-		*/
-	}
-mysqli_close($conn);
-?>
+
