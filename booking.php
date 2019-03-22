@@ -1,6 +1,8 @@
+				
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript" src="data.json"></script>
  <script type = "text/javascript">
          <!--
             function Warn() {
@@ -8,7 +10,10 @@
                
             }
          //-->
+         
+
       </script>    
+      
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -97,7 +102,9 @@
 
 								$counter.text(sc.find('selected').length+1);
 								$total.text(recalculateTotal(sc)+price);
-											
+									let a = [];
+									a.push(this.settings.id);
+									localStorage.setItem('seat_no', JSON.stringify(a));
 								return 'selected';
 							} else if (this.status() == 'selected') { //Checked
 									//Update Number
@@ -114,11 +121,15 @@
 							} else {
 								return this.style();
 							}
+
 						}
 					});
 					//sold seat
-					sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
-						
+					       data = JSON.parse(localStorage.getItem('seat_no'));
+					        sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');	
+					       for (i = 0; i < data.length; i++) { 
+							     sc.get(data[i]).status('unavailable');							     
+}
 				});
 				//sum total money
 				function recalculateTotal(sc) {
