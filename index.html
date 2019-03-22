@@ -1,138 +1,166 @@
+﻿
 <!DOCTYPE html>
 <html>
 <head>
- <script type = "text/javascript">
-         <!--
-            function Warn() {
-               alert ("Your tickets succesfully have been booked!!!");
-               
-            }
-         //-->
-      </script>    
+<title>Cinema XII Movie Theater </title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="css/style_index.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<link href='//fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/jquery.seat-charts.js"></script>
+<meta name="keywords" content="Cinema Responsive web" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class="content">
-	<h1>Movie Ticket Booking System</h1>
-	<div class="main">
-		<h2>Multiplex Theatre</h2>
-		<div class="demo">
-			<div id="seat-map">
-				<div class="front">Select the seats shown below in screen</div>					
-			</div>
-			<div class="booking-details">
-				<ul class="book-left">
-					<li>Movie </li>
-					<li>Time </li>
-					<li>Tickets</li>
-					<li>Total</li>
-					<li>Seats :</li>
-				</ul>
-				<ul class="book-right">
-					<li>: Fury</li>
-					<li>: April 3, 21:00</li>
-					<li>: <span id="counter">0</span></li>
-					<li>: <b><i>Rs.</i><span id="total">0</span></b></li>
-				</ul>
-
- 
-				<div class="clear"></div>
-				<ul id="selected-seats" class="scrollbar scrollbar1"></ul>
-
-<a href="payment.html"><input type="button" name="button" value="Pay Now"></a>
-
-				
-				<div id="legend"></div>
-			</div>
-			<div style="clear:both"></div>
-	    </div>
-
-			<script type="text/javascript">
- 
-				var price = 100; //price
-				$(document).ready(function() {
-					var $cart = $('#selected-seats'), //Sitting Area
-					$counter = $('#counter'), //Votes
-					$total = $('#total'); //Total money
+	<!-- header-section-starts -->
+	<div class="full">
+			<div class="menu">
+				<ul>
+					<li><a class="active" href="index.html"><i class="home"></i></a></li>
 					
-					var sc = $('#seat-map').seatCharts({
-						map: [  //Seating chart
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'__________',
-							'aaaaaaaa__',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'aaaaaaaaaa',
-							'__aaaaaa__'
-						],
-						naming : {
-							top : false,
-							getLabel : function (character, row, column) {
-								return column;
-							}
-						},
-						legend : { //Definition legend
-							node : $('#legend'),
-							items : [
-								[ 'a', 'available',   'Available' ],
-								[ 'a', 'unavailable', 'Sold'],
-								[ 'a', 'selected', 'Selected']
-							]					
-						},
-						click: function () { //Click event
-							if (this.status() == 'available') { //optional seat
-								$('<li>Row'+(this.settings.row+1)+' Seat'+this.settings.label+'</li>')
-									.attr('id', 'cart-item-'+this.settings.id)
-									.data('seatId', this.settings.id)
-									.appendTo($cart);
-
-								$counter.text(sc.find('selected').length+1);
-								$total.text(recalculateTotal(sc)+price);
-											
-								return 'selected';
-							} else if (this.status() == 'selected') { //Checked
-									//Update Number
-									$counter.text(sc.find('selected').length-1);
-									//update totalnum
-									$total.text(recalculateTotal(sc)-price);
-										
-									//Delete reservation
-									$('#cart-item-'+this.settings.id).remove();
-									//optional
-									return 'available';
-							} else if (this.status() == 'unavailable') { //sold
-								return 'unavailable';
-							} else {
-								return this.style();
-							}
-						}
-					});
-					//sold seat
-					sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
-						
-				});
-				//sum total money
-				function recalculateTotal(sc) {
-					var total = 0;
-					sc.find('selected').each(function () {
-						total += price;
-					});
-							
-					return total;
+					<li><a href="reviews.html"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
+					<li><a href="contact.html"><div class="cnt"><i class="contact"></i><i class="contact1"></i></div></a></li>
+				</ul>
+			</div>
+		<div class="main">
+		<div class="header">
+			<div class="top-header">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt="" /></a>
+					<p>Movie Theater</p>
+				</div>
+				<div class="search">
+					<form>
+						<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
+						<input type="submit" value="">
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="header-info">
+				<h1>BIG HERO 6</h1>
+				<p class="age"><a href="#">All Age</a> Director: Chris Williams</p>
+				<p class="review">Rating	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;  8.5/10</p>
+				<p class="review reviewgo">Genre	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp; Animation, Action, Comedy</p>
+				<p class="review">Release &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; 7 March 2019</p>
+				<p class="special">The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.</p>
+				<a class="video" href="https://www.youtube.com/watch?v=z3biFxZIJOQ"><i class="video1"></i>WATCH TRAILER</a>
+				<a class="book" href="booking.html"><i class="book1"></i>BOOK TICKET</a>
+			</div>
+		</div>
+		<div class="review-slider">
+			 <ul id="flexiselDemo1">
+			<li><img src="images/r1.jpg" alt=""/></li><a href="booking1.html"></li>
+			<li><img src="images/r2.jpg" alt=""/>
+			<li><img src="images/r3.jpg" alt=""/>
+			<li><img src="images/r4.jpg" alt=""/>
+			<li><img src="images/r5.jpg" alt=""/>
+			
+		</ul>
+			<script type="text/javascript">
+		$(window).load(function() {
+			
+		  $("#flexiselDemo1").flexisel({
+				visibleItems: 6,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover: false,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: { 
+					portrait: { 
+						changePoint:480,
+						visibleItems: 2
+					}, 
+					landscape: { 
+						changePoint:640,
+						visibleItems: 3
+					},
+					tablet: { 
+						changePoint:768,
+						visibleItems: 4
+					}
 				}
-			</script>
-
-</div>
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
+			});
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
+		</div>
+		<div class="video">
+			<iframe  src="https://www.youtube.com/embed/2LqzF5WauAw" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="news">
+			<div class="col-md-6 news-left-grid">
+				<h3>Don’t be late,</h3>
+				<h2>Book your ticket now!</h2>
+				<h4>Easy, simple & fast.</h4>
+				<a href="booking.html"><i class="book"></i>BOOK TICKET</a>
+				<p>Get Discount up to <strong>10%</strong> if you are a member!</p>
+			</div>
+			<div class="col-md-6 news-right-grid">
+				<h3>News</h3>
+				<div class="news-grid">
+					<h5>NEW AVENGERS: ENDGAME TRAILER DOES 'WHATEVER IT TAKES'</h5>
+					<label>Mar 11 2019</label>
+					<p>It's perhaps no surprise that Marvel is not doling out much in the way of plot in the ramp-up for Avengers: Endgame. The latest trailer, like the one before it, leans heavy on sad heroes promising vague action. But what it does have? Fashion.</p>
+				</div>
+				<div class="news-grid">
+					<h5>
+'Captain Marvel' Flies Higher, Further, Faster Past $760M Worldwide (Box Office)</h5>
+					<label>Mar 11 2019</label>
+					<p>Captain Marvel raced higher, further and/or faster over its second weekend, topping the global box office yet again and clearing a handful of milestones in the process. The MCU flick earned another $69.3 million in North America, a drop of 55% from its $153.4m debut frame. This is, quite frankly, a deeply boring result, as it’s neither a super-duper hold or a super-super drop. It is more-or-less on par with the various Hunger Games movies and most MCU flicks (Guardians of the Galaxy, Guardians of the Galaxy Vol. 2, Captain America</p>
+				</div>
+				<a class="more" href="#">MORE</a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="more-reviews">
+			 <ul id="flexiselDemo2">
+			<li><img src="images/m1.jpg" alt=""/></li><a href="booking1.html"></li>
+			<li><img src="images/m2.jpg" alt=""/></li><a href="booking1.html"></li>
+			<li><img src="images/m3.jpg" alt=""/></li><a href="booking1.html"></li>
+			<li><img src="images/m4.jpg" alt=""/></li><a href="booking1.html"></li>
+		</ul>
+			<script type="text/javascript">
+		$(window).load(function() {
+			
+		  $("#flexiselDemo2").flexisel({
+				visibleItems: 4,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover: false,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: { 
+					portrait: { 
+						changePoint:480,
+						visibleItems: 2
+					}, 
+					landscape: { 
+						changePoint:640,
+						visibleItems: 3
+					},
+					tablet: { 
+						changePoint:768,
+						visibleItems: 3
+					}
+				}
+			});
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
+		</div>	
+	<div class="footer">
+					
+		</div>
+	</div>	
+	</div>
+	</div>
+	<div class="clearfix"></div>
 </body>
 </html>
